@@ -1,0 +1,7 @@
+# Configuração do Banco de Dados - FitManager
+# Copie este arquivo para database.properties e preencha com suas credenciais
+# O arquivo database.properties NÃO deve ser commitado (contém dados sensíveis)
+
+db.url=jdbc:mysql://localhost:3306/fitmanager
+db.user=seu_usuario
+db.password=sua_senha
