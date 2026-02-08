@@ -27,12 +27,14 @@ CREATE DATABASE academia;
 
 2. Execute o script SQL localizado em `resources/schema.sql`
 
-3. Configure as credenciais em `DatabaseConnection.java`:
-```java
-private static final String URL = "jdbc:mysql://localhost:3306/academia";
-private static final String USER = "seu_usuario";
-private static final String PASSWORD = "sua_senha";
-```
+3. Configure as credenciais do banco de dados:
+   - Copie `database.properties.example` para `database.properties` na raiz do projeto
+   - Edite `database.properties` com suas credenciais:
+   ```
+   db.url=jdbc:mysql://localhost:3306/fitmanager
+   db.user=seu_usuario
+   db.password=sua_senha
+   ```
 
 ### Executando o Projeto
 ```bash

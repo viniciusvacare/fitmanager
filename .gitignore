@@ -3,3 +3,18 @@ database.properties
 
 # Build
 bin/
+
+# Java build
+bin/
+*.class
+
+# Libs locais
+lib/
+
+# Eclipse 
+.classpath
+.project
+.settings/
+
+# Testes locais
+src/**/Test*.java
