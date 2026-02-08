@@ -21,10 +21,10 @@ public class AlunoService {
 		return cpf.replaceAll("[^0-9]", "");
 	}
 
-	private boolean cpfValido(String cpf) {
-		String numeros = formatarCpf(cpf);
-		return numeros != null && numeros.length() == 11;
-	}
+	// private boolean cpfValido(String cpf) {
+	// 	String numeros = formatarCpf(cpf);
+	// 	return numeros != null && numeros.length() == 11;
+	// }
 
 	private void validarCpfUnico(String cpf, Integer idExcluir) throws SQLException {
 		String cpfFormatado = formatarCpf(cpf);
