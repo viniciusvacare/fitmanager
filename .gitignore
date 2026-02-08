@@ -3,18 +3,23 @@ database.properties
 
 # Build
 bin/
-
-# Java build
-bin/
 *.class
-
-# Libs locais
 lib/
 
-# Eclipse 
-.classpath
-.project
+# IDE - Eclipse
 .settings/
 
-# Testes locais
-src/**/Test*.java
+# IDEs - manter .classpath e .project para facilitar abertura no Eclipse
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# testes
+test/
+
+# Logs e temporários
+*.log
+*.tmp
+*.swp
+*~

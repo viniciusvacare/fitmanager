@@ -117,6 +117,19 @@ public class MatriculaDAO {
 		}
 	}
 
+	public java.util.Map<Integer, Long> contarPorPlano() throws SQLException {
+		String sql = "SELECT plano_id, COUNT(*) as total FROM matriculas GROUP BY plano_id ORDER BY total DESC";
+		java.util.Map<Integer, Long> map = new java.util.LinkedHashMap<>();
+		try (Connection conn = DatabaseConnection.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(sql);
+				ResultSet rs = stmt.executeQuery()) {
+			while (rs.next()) {
+				map.put(rs.getInt("plano_id"), rs.getLong("total"));
+			}
+		}
+		return map;
+	}
+
 	public List<Matricula> listarTodos() throws SQLException {
 		String sql = "SELECT id, aluno_id, plano_id, data_inicio, data_fim, ativo FROM matriculas ORDER BY data_inicio DESC";
 		List<Matricula> matriculas = new ArrayList<>();

@@ -118,6 +118,23 @@ public class PagamentoDAO {
 		}
 	}
 
+	public List<Pagamento> buscarPagosPorMes(int ano, int mes) throws SQLException {
+		String sql = "SELECT id, matricula_id, valor, data_vencimento, data_pagamento, status FROM pagamentos " +
+				"WHERE status = 'PAGO' AND YEAR(data_pagamento) = ? AND MONTH(data_pagamento) = ?";
+		List<Pagamento> pagamentos = new ArrayList<>();
+		try (Connection conn = DatabaseConnection.getConnection();
+				PreparedStatement stmt = conn.prepareStatement(sql)) {
+			stmt.setInt(1, ano);
+			stmt.setInt(2, mes);
+			try (ResultSet rs = stmt.executeQuery()) {
+				while (rs.next()) {
+					pagamentos.add(mapearPagamento(rs));
+				}
+			}
+		}
+		return pagamentos;
+	}
+
 	public List<Pagamento> listarTodos() throws SQLException {
 		String sql = "SELECT id, matricula_id, valor, data_vencimento, data_pagamento, status FROM pagamentos ORDER BY data_vencimento DESC";
 		List<Pagamento> pagamentos = new ArrayList<>();
